@@ -82,8 +82,7 @@ CLASSIFIERS = [
     'Programming Language :: Python',
     'Programming Language :: Python :: 2.6',
     'Programming Language :: Python :: 2.7',
-    'Operating System :: MacOS :: MacOS X',
-    'Operating System :: POSIX :: Linux',
+    'Operating System :: OS Independent',
     'Development Status :: 2 - Pre-Alpha',
     'License :: OSI Approved :: BSD License'
 ]
