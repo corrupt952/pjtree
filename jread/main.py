@@ -6,15 +6,17 @@ def main():
 
     main method.
     """
-    import sys
+    import argparse
     import jread
 
-    argc = len(sys.argv)
-    if argc < 2:
-        print('Usage: jread path')
-        sys.exit(1)
-    data = jread.scan({}, sys.argv[1])
-    jread.show(data)
+    parser = argparse.ArgumentParser()
+    jread.set_argument(parser)
+    args = parser.parse_args()
+    data = jread.scan({}, args.path, args.encoding)
+    if args.file is None:
+        jread.show(data)
+    else:
+        jread.save(data, args.file, args.encoding)
 
 
 if __name__ == '__main__':

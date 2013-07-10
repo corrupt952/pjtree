@@ -1,6 +1,15 @@
 # -*- utf-8 -*-
 
 
+def set_argument(parser):
+    u""" Set argument.
+
+    @param parser ArgumentParser
+    """
+    parser.add_argument('-f', '--file', help='Json file')
+    parser.add_argument('path', nargs=1, type=str, default=None)
+
+
 def load_json(path, encode):
     u""" Loading json.
 
@@ -55,28 +64,27 @@ def make_file(path, url):
 
     if os.path.exists(path):
         print('Already exists %s.' % path)
-    elif url == None:
-        print('Make %s.' % path)
+    elif url is None:
+        print('Make %s' % path)
         os.mkdir(path)
-        print('%s Done.' % path)
+        print('%s Done' % path)
     elif re.match('url:', url):
         import urllib
-        print('make %s.' % path)
+        print('make %s' % path)
         url = url.replace('url:', '')
         urllib.urlretrieve(url, path)
-        print('%s done.')
+        print('%s done')
     elif re.match('b64:', url):
         import base64
-        print('Make %s.' % path)
+        print('Make %s' % path)
         f = open(path, 'w')
         url = url.replace('b64:', '')
         f.write(base64.b64decode(url))
         f.close()
-        print('%s Done.' % path)
+        print('%s Done' % path)
     else:
-        print('make %s.' % path)
+        print('make %s' % path)
         f = open(path, 'w')
         f.write(url)
         f.close()
-        print('%s done.')
-
+        print('%s done' % path)

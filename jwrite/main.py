@@ -15,7 +15,6 @@ def main():
         sys.exit(1)
     data = jwrite.load_json(sys.argv[1], sys.argv[2])
     jwrite.trace(data, sys.argv[3])
-    
 
 
 if __name__ == '__main__':

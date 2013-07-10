@@ -5,7 +5,7 @@ from setuptools import setup
 
 NAME = 'pjtree'
 
-VERSION = '0.0.1'
+VERSION = '0.0.2'
 
 DESCRIPTION = 'Create files script.'
 
@@ -16,8 +16,8 @@ Make directory hierarchy to json.
 
 Requirements
 ------------
-* Python 2.6
 * Python 2.7
+* Python 3.3
 
 
 Features
@@ -36,7 +36,7 @@ Examples
 Target directory to json.
 ::
 
-    $ jread [Target directory]
+    $ jread [Target directory] [-f, --file]
 
 Make any directory and files by json.
 ::
@@ -80,8 +80,8 @@ History
 
 CLASSIFIERS = [
     'Programming Language :: Python',
-    'Programming Language :: Python :: 2.6',
     'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3.3',
     'Operating System :: OS Independent',
     'Development Status :: 2 - Pre-Alpha',
     'License :: OSI Approved :: BSD License'
