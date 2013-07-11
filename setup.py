@@ -36,12 +36,12 @@ Examples
 Target directory to json.
 ::
 
-    $ jread [Target directory] [-f, --file]
+    $ jread [Target directory] [-f, --file] [--encoding]
 
 Make any directory and files by json.
 ::
 
-    $ jwrite [Json] [Json encoding] [Make path]
+    $ jwrite [Json] [Make path] [--encoding]
 
 Make any directory and files.
 
@@ -73,6 +73,9 @@ Redistribution and use in source and binary forms, with or without modification,
 
 History
 -------
+0.0.2 (7-11-2013)
+* Responded to the python3.3.
+
 0.0.1 (7-9-2013)
 * First release
 

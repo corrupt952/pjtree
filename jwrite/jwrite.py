@@ -7,7 +7,9 @@ def set_argument(parser):
     @param parser ArgumentParser
     """
     parser.add_argument('-f', '--file', help='Json file')
-    parser.add_argument('path', nargs=1, type=str, default=None)
+    parser.add_argument('json', type=str, default=None)
+    parser.add_argument('path', type=str, default=None)
+    parser.add_argument('--encoding',  type=str, default='utf-8')
 
 
 def load_json(path, encode):
@@ -36,8 +38,8 @@ def trace(data, path):
     If data type is Dict, create directory.
     Otherwise, create empty file.
 
-    @param data dict or str
-    @param path file path
+    @param data   dict or str
+    @param path   file path
     """
     import os
 
@@ -56,8 +58,8 @@ def make_file(path, url):
     path is making file path.
     data is download file url.
 
-    @param path str
-    @param url  str
+    @param path   str
+    @param url    str
     """
     import os
     import re
@@ -77,9 +79,10 @@ def make_file(path, url):
     elif re.match('b64:', url):
         import base64
         print('Make %s' % path)
-        f = open(path, 'w')
+        f = open(path, 'wb')
         url = url.replace('b64:', '')
-        f.write(base64.b64decode(url))
+        url = base64.b64decode(url)
+        f.write((url))
         f.close()
         print('%s Done' % path)
     else:

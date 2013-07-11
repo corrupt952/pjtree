@@ -8,7 +8,7 @@ def set_argument(parser):
     """
     parser.add_argument('-f', '--file', help='Json file')
     parser.add_argument('path', type=str, default=None)
-    parser.add_argument('-e', '--encoding', type=str, default='utf-8')
+    parser.add_argument('--encoding', type=str, default='utf-8')
 
 
 def scan(data, path, enc):
@@ -63,4 +63,3 @@ def save(data, path, enc):
     fo = codecs.open(path, 'w', enc)
     json.dump(data, fo, sort_keys=True, indent=4, ensure_ascii=False)
     fo.close()
-
