@@ -73,10 +73,13 @@ Redistribution and use in source and binary forms, with or without modification,
 
 History
 -------
-0.0.2 (7-11-2013)
+Version 0.0.2 (7-11-2013)
+
 * Responded to the python3.3.
 
-0.0.1 (7-9-2013)
+
+Version 0.0.1 (7-9-2013)
+
 * First release
 
 """
