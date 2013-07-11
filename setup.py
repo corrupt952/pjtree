@@ -1,7 +1,7 @@
 # -*- utf-8 -*-
 
 
-from setuptools import setup
+from distutils.core import setup
 
 NAME = 'pjtree'
 
