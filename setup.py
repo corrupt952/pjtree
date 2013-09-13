@@ -41,7 +41,7 @@ Target directory to json.
 Make any directory and files by json.
 ::
 
-    $ jwrite [Json] [Make path] [--encoding] [--force]
+    $ jwrite [Json] [Make path] [--encoding] [--force] [--notoverwrite]
 
 Make any directory and files.
 
