@@ -5,7 +5,7 @@ from setuptools import setup
 
 NAME = 'pjtree'
 
-VERSION = '0.0.2'
+VERSION = '0.0.3'
 
 DESCRIPTION = 'Create files script.'
 
@@ -41,7 +41,7 @@ Target directory to json.
 Make any directory and files by json.
 ::
 
-    $ jwrite [Json] [Make path] [--encoding]
+    $ jwrite [Json] [Make path] [--encoding] [--force]
 
 Make any directory and files.
 
