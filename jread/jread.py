@@ -25,16 +25,21 @@ def scan(data, path, enc):
     import os
     import base64
 
-    files = os.listdir(path)
-    for f in files:
-        f_path = os.path.join(path, f)
-        if os.path.isdir(f_path):
-            data[f] = scan({}, f_path, enc)
-        else:
-            fi = open(f_path, 'rb')
-            body = base64.b64encode(fi.read())
-            data[f] = 'b64:' + body.decode(enc)
-            fi.close()
+    if os.access(path, os.R_OK):
+        files = os.listdir(path)
+        for f in files:
+            f_path = os.path.join(path, f)
+            if os.path.isdir(f_path):
+                data[f] = scan({}, f_path, enc)
+            else:
+                if os.access(f_path, os.R_OK):
+                    with open(f_path, 'rb') as fi:
+                        body = base64.b64encode(fi.read())
+                        data[f] = 'b64:' + body.decode(enc)
+                else:
+                    print('%s permission denied!' % f_path)
+    else:
+        print('%s permission denied!' % path)
     return data
 
 
@@ -60,6 +65,8 @@ def save(data, path, enc):
     import json
     import codecs
 
-    fo = codecs.open(path, 'w', enc)
-    json.dump(data, fo, sort_keys=True, indent=4, ensure_ascii=False)
-    fo.close()
+    try:
+        with codecs.open(path, 'w', enc) as fo:
+            json.dump(data, fo, sort_keys=True, indent=4, ensure_ascii=False)
+    except IOError as e:
+        print('Cat not craete file!')
