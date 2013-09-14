@@ -73,6 +73,11 @@ Redistribution and use in source and binary forms, with or without modification,
 
 History
 -------
+Version 0.0.3 (9-14-2013)
+
+* Added overwrite action.
+
+
 Version 0.0.2 (7-11-2013)
 
 * Responded to the python3.3.
