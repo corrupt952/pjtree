@@ -26,10 +26,16 @@ def load_json(path, encode):
     """
     import json
     import codecs
+    import os
 
-    fi = codecs.open(path, 'r', encode)
-    data = json.load(fi)
-    fi.close()
+    if os.access(path, os.R_OK):
+        try:
+            with codecs.open(path, 'r', encode) as fi:
+                data = json.load(fi)
+        except ValueError:
+            raise ValueError
+    else:
+        print('%s permission denied!' % path)
 
     return data
 
@@ -69,6 +75,12 @@ def make_file(path, url, owrite, nowrite=False):
     """
     import os
     import re
+    def file_write(path, url, option):
+        print('make %s.' % path)
+        with open(path, option) as f:
+            f.write(url)
+        print('done.')
+            
 
     if os.path.exists(path) and not owrite:
         if not url is None and not nowrite:
@@ -80,25 +92,17 @@ def make_file(path, url, owrite, nowrite=False):
         if not owrite:
             print('make %s' % path)
             os.mkdir(path)
-            print('%s Done' % path)
+            print('done.')
     elif re.match('url:', url):
         import urllib
         print('make %s' % path)
         url = url.replace('url:', '')
         urllib.urlretrieve(url, path)
-        print('%s done')
+        print('done.')
     elif re.match('b64:', url):
         import base64
-        print('make %s' % path)
-        f = open(path, 'wb')
         url = url.replace('b64:', '')
         url = base64.b64decode(url)
-        f.write((url))
-        f.close()
-        print('%s Done' % path)
+        file_write(path, url, 'wb')
     else:
-        print('make %s' % path)
-        f = open(path, 'w')
-        f.write(url)
-        f.close()
-        print('%s done' % path)
+        file_write(path, url, 'w')
