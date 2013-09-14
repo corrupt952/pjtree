@@ -64,9 +64,10 @@ def save(data, path, enc):
     """
     import json
     import codecs
+    import os
 
-    try:
+    if os.access(os.path.dirname(os.path.abspath(path)), os.W_OK):
         with codecs.open(path, 'w', enc) as fo:
             json.dump(data, fo, sort_keys=True, indent=4, ensure_ascii=False)
-    except IOError as e:
+    else:
         print('Cat not craete file!')
