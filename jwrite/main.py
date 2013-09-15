@@ -6,10 +6,9 @@ def main():
 
     main method.
     """
-    import argparse
-    import jwrite
     import os
-    import sys
+    import argparse
+    from . import jwrite
 
     parser = argparse.ArgumentParser()
     jwrite.set_argument(parser)

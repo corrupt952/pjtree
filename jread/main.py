@@ -7,7 +7,7 @@ def main():
     main method.
     """
     import argparse
-    import jread
+    from . import jread
 
     parser = argparse.ArgumentParser()
     jread.set_argument(parser)
