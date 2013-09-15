@@ -5,7 +5,7 @@ from setuptools import setup
 
 NAME = 'pjtree'
 
-VERSION = '0.0.3'
+VERSION = '0.1.0'
 
 DESCRIPTION = 'Create files script.'
 
@@ -73,14 +73,19 @@ Redistribution and use in source and binary forms, with or without modification,
 
 History
 -------
+Version 0.1.0 (9-15-2013)
+
+* Responded to the python3.x
+
+
 Version 0.0.3 (9-14-2013)
 
-* Added overwrite action.
+* Added overwrite action
 
 
 Version 0.0.2 (7-11-2013)
 
-* Responded to the python3.3.
+* Responded to the python3.3
 
 
 Version 0.0.1 (7-9-2013)
